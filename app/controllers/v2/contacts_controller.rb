@@ -1,4 +1,4 @@
-class ContactsController < ApplicationController
+class V2::ContactsController < ApplicationController
   def show_my_contacts
     contact1 = Contact.first
 

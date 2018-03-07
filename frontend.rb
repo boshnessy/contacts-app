@@ -2,7 +2,7 @@ require 'unirest'
 
 # one contact
 p "Here is your first contact:"
-response = Unirest.get("http://localhost:3000/contact_list")
+response = Unirest.get("http://localhost:3000/v1/contact_list")
 
 contact = response.body
 
@@ -13,7 +13,7 @@ p "phone number: #{contact["phone_number"]}"
 
 
 # all contacts
-response = Unirest.get("http://localhost:3000/all_contacts")
+response = Unirest.get("http://localhost:3000/v1/all_contacts")
 contacts = response.body
 
 # loop through contacts, print out each
