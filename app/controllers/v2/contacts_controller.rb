@@ -13,7 +13,7 @@ class V2::ContactsController < ApplicationController
     #loop through all contacts  
     contacts.each do |contact|
       #make a hash for each contact
-      the_contact_hash = {first_name: contact.first_name, last_name: contact.last_name, email: contact.email, phone_number: contact.phone_number}
+      the_contact_hash = {firstName: contact.first_name, lastName: contact.last_name, email: contact.email, phoneNumber: contact.phone_number}
       #shovel hash into array
       contacts_hashes << the_contact_hash
     end
