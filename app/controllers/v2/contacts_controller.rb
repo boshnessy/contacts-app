@@ -19,4 +19,8 @@ class V2::ContactsController < ApplicationController
     end
     render json: contacts_hashes # already a hash -> don't need hash brackets
   end
+
+  def index
+    render json: {message: "hi"}
+  end
 end
