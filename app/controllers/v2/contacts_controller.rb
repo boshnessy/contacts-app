@@ -25,4 +25,11 @@ class V2::ContactsController < ApplicationController
 
     render json: contacts.as_json
   end
+
+  def show
+    id = params[:id]
+    contact = Contact.find_by(id: id)
+
+    render json: contact.as_json
+  end
 end
