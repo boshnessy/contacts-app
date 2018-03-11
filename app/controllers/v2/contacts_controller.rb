@@ -32,4 +32,16 @@ class V2::ContactsController < ApplicationController
 
     render json: contact.as_json
   end
+
+  def create
+    contact1 = Contact.new(
+      first_name: params[:input_first_name], 
+      last_name: params[:input_last_name], 
+      email: params[:input_email], 
+      phone_number: params[:input_phone_number]
+    )
+    contact1.save
+
+    render json: contact1.as_json
+  end
 end
