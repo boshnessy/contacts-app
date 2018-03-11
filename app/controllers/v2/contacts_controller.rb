@@ -21,6 +21,8 @@ class V2::ContactsController < ApplicationController
   end
 
   def index
-    render json: {message: "hi"}
+    contacts = Contact.all
+
+    render json: contacts.as_json
   end
 end
