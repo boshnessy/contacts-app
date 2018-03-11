@@ -57,4 +57,12 @@ class V2::ContactsController < ApplicationController
 
     render json: contact.as_json
   end
+
+  def destroy
+    id = params[:id]
+    contact = Contact.find_by(id: id)
+    contact.delete
+
+    render json: {message: "You successfully deleted your contact."}
+  end
 end
