@@ -44,4 +44,17 @@ class V2::ContactsController < ApplicationController
 
     render json: contact1.as_json
   end
+
+  def update
+    id = params[:id]
+    contact = Contact.find_by(id: id)
+    contact.update(
+      first_name: params[:input_first_name], 
+      last_name: params[:input_last_name], 
+      email: params[:input_email], 
+      phone_number: params[:input_phone_number]
+    )
+
+    render json: contact.as_json
+  end
 end
