@@ -8,6 +8,7 @@ class Contact < ApplicationRecord
       full_name: full_name,
       email: email,
       phone_number: japanese_phone_number,
+      bio: bio,
       updated_at: friendly_updated_at
     }
   end
