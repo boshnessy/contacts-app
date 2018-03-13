@@ -3,6 +3,7 @@ class Contact < ApplicationRecord
     {
       id: id,
       first_name: first_name,
+      middle_name: middle_name,
       last_name: last_name,
       full_name: full_name,
       email: email,
@@ -16,7 +17,7 @@ class Contact < ApplicationRecord
   end
 
   def full_name
-    full_name = "#{first_name} #{last_name}"
+    full_name = "#{first_name} #{middle_name} #{last_name}"
   end
 
   def japanese_phone_number
