@@ -11,13 +11,16 @@ p "Enter an email:"
 email = gets.chomp
 p "Enter a phone_number:"
 phone_number = gets.chomp
+p "Enter a bio:"
+bio = gets.chomp
 
 response = Unirest.post("localhost:3000/v2/contacts", parameters: {
   input_first_name: first_name,
   input_middle_name: middle_name,
   input_last_name: last_name,
   input_email: email,
-  input_phone_number: phone_number
+  input_phone_number: phone_number,
+  input_bio: bio
   })
 
 puts JSON.pretty_generate(response.body)
@@ -36,13 +39,16 @@ p "Enter an email:"
 email = gets.chomp
 p "Enter a phone_number:"
 phone_number = gets.chomp
+p "Enter a bio:"
+bio = gets.chomp
 
 response = Unirest.patch("localhost:3000/v2/contacts/#{contact_id}", parameters: {
   input_first_name: first_name,
   input_middle_name: middle_name,
   input_last_name: last_name,
   input_email: email,
-  input_phone_number: phone_number
+  input_phone_number: phone_number,
+  input_bio: bio
 })
 
 p "You successfully updated your contact."
