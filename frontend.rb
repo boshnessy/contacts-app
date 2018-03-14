@@ -26,37 +26,37 @@ response = Unirest.post("localhost:3000/v2/contacts", parameters: {
 puts JSON.pretty_generate(response.body)
 
 
-# UDPATE
-p "Enter the id of the contact you wish to update"
-contact_id = gets.chomp
-p "Enter a first_name:"
-first_name = gets.chomp
-p "Enter a middle_name:"
-middle_name = gets.chomp
-p "Enter a last_name:"
-last_name = gets.chomp
-p "Enter an email:"
-email = gets.chomp
-p "Enter a phone_number:"
-phone_number = gets.chomp
-p "Enter a bio:"
-bio = gets.chomp
+# # UDPATE
+# p "Enter the id of the contact you wish to update"
+# contact_id = gets.chomp
+# p "Enter a first_name:"
+# first_name = gets.chomp
+# p "Enter a middle_name:"
+# middle_name = gets.chomp
+# p "Enter a last_name:"
+# last_name = gets.chomp
+# p "Enter an email:"
+# email = gets.chomp
+# p "Enter a phone_number:"
+# phone_number = gets.chomp
+# p "Enter a bio:"
+# bio = gets.chomp
 
-response = Unirest.patch("localhost:3000/v2/contacts/#{contact_id}", parameters: {
-  input_first_name: first_name,
-  input_middle_name: middle_name,
-  input_last_name: last_name,
-  input_email: email,
-  input_phone_number: phone_number,
-  input_bio: bio
-})
+# response = Unirest.patch("localhost:3000/v2/contacts/#{contact_id}", parameters: {
+#   input_first_name: first_name,
+#   input_middle_name: middle_name,
+#   input_last_name: last_name,
+#   input_email: email,
+#   input_phone_number: phone_number,
+#   input_bio: bio
+# })
 
-p "You successfully updated your contact."
+# p "You successfully updated your contact."
 
 
-# DESTROY
-p "Enter the id of the contact you wish to delete"
-contact_id = gets.chomp
+# # DESTROY
+# p "Enter the id of the contact you wish to delete"
+# contact_id = gets.chomp
 
-response = Unirest.delete("localhost:3000/v2/contacts/#{contact_id}")
-puts JSON.pretty_generate(response.body)
+# response = Unirest.delete("localhost:3000/v2/contacts/#{contact_id}")
+# puts JSON.pretty_generate(response.body)
