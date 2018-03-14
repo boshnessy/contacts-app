@@ -11,6 +11,8 @@ p "Enter an email:"
 email = gets.chomp
 p "Enter a phone_number:"
 phone_number = gets.chomp
+p "Enter an address:"
+address = gets.chomp
 p "Enter a bio:"
 bio = gets.chomp
 
@@ -20,6 +22,7 @@ response = Unirest.post("localhost:3000/v2/contacts", parameters: {
   input_last_name: last_name,
   input_email: email,
   input_phone_number: phone_number,
+  input_address: address,
   input_bio: bio
   })
 
@@ -40,6 +43,8 @@ puts contact
 # email = gets.chomp
 # p "Enter a phone_number:"
 # phone_number = gets.chomp
+# p "Enter an address:"
+# address = gets.chomp
 # p "Enter a bio:"
 # bio = gets.chomp
 
@@ -49,6 +54,7 @@ puts contact
 #   input_last_name: last_name,
 #   input_email: email,
 #   input_phone_number: phone_number,
+#   input_address: address,
 #   input_bio: bio
 # })
 
