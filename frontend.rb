@@ -23,7 +23,8 @@ response = Unirest.post("localhost:3000/v2/contacts", parameters: {
   input_bio: bio
   })
 
-puts JSON.pretty_generate(response.body)
+contact = response.body
+puts contact
 
 
 # # UDPATE
