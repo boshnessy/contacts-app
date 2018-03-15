@@ -1,7 +1,7 @@
 class V2::ContactsController < ApplicationController
   def index
     search_term = params[:search]
-    contacts = Contact.all.where(first_name: "#{search_term}")
+    contacts = Contact.all.where("first_name LIKE ?", "%#{search_term}%")
 
     render json: contacts.as_json
   end
