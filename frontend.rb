@@ -88,19 +88,25 @@ require 'unirest'
 
 # user = response.body
 
-#LOGIN
-# response = Unirest.post("http://localhost:3000/user_token",
-#   parameters: {
-#     auth: {
-#       email: "calvino@calvino.com",
-#       password: "password"
-#     }
-#   }
-# )
+# LOGIN
+response = Unirest.post("http://localhost:3000/user_token",
+  parameters: {
+    auth: {
+      email: "calvino@calvino.com",
+      password: "password"
+    }
+  }
+)
 
-# jwt = response.body["jwt"]
-# Unirest.default_header("Authorization", "Bearer #{jwt}")
+p response.body
+
+jwt = response.body["jwt"]
+Unirest.default_header("Authorization", "Bearer #{jwt}")
+
+response = Unirest.get("localhost:3000/v2/contacts")
+
+p response.body
 
 #LOGOUT
-jwt = ""
-Unirest.clear_default_headers()
+# jwt = ""
+# Unirest.clear_default_headers()

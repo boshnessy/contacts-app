@@ -1,5 +1,9 @@
 class V2::ContactsController < ApplicationController
   def index
+    p "*" * 50
+    p current_user
+    p "*" * 50
+
     search_term = params[:search]
     contacts = Contact.all.where("first_name LIKE ?", "%#{search_term}%")
 
