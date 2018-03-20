@@ -2,11 +2,11 @@ require 'unirest'
 
 # INDEX
 # Search by specific first name
-p "Enter the first name of the contact"
-search_term = gets.chomp
+# p "Enter the first name of the contact"
+# search_term = gets.chomp
 
-response = Unirest.get("http://localhost:3000/v2/contacts?search=#{search_term}")
-p response.body
+# response = Unirest.get("http://localhost:3000/v2/contacts?search=#{search_term}")
+# p response.body
 
 # # CREATE
 # p "Enter a first_name:"
@@ -75,3 +75,17 @@ p response.body
 
 # response = Unirest.delete("localhost:3000/v2/contacts/#{contact_id}")
 # puts JSON.pretty_generate(response.body)
+
+#SIGNUP
+response = Unirest.post("localhost:3000/v2/users", 
+  parameters: {
+    name: "Calvino",
+    email: "calvino@calvino.com",
+    password: "password",
+    password_confirmation: "password"
+  }
+)
+
+user = response.body
+
+#LOGIN
