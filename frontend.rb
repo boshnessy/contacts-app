@@ -77,15 +77,26 @@ require 'unirest'
 # puts JSON.pretty_generate(response.body)
 
 #SIGNUP
-response = Unirest.post("localhost:3000/v2/users", 
+# response = Unirest.post("localhost:3000/v2/users", 
+#   parameters: {
+#     name: "Calvino",
+#     email: "calvino@calvino.com",
+#     password: "password",
+#     password_confirmation: "password"
+#   }
+# )
+
+# user = response.body
+
+#LOGIN
+response = Unirest.post("http://localhost:3000/user_token",
   parameters: {
-    name: "Calvino",
-    email: "calvino@calvino.com",
-    password: "password",
-    password_confirmation: "password"
+    auth: {
+      email: "calvino@calvino.com",
+      password: "password"
+    }
   }
 )
 
-user = response.body
-
-#LOGIN
+jwt = response.body["jwt"]
+Unirest.default_header("Authorization", "Bearer #{jwt}")
