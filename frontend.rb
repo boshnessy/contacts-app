@@ -77,35 +77,46 @@ require 'unirest'
 # puts JSON.pretty_generate(response.body)
 
 #SIGNUP
-# response = Unirest.post("localhost:3000/v2/users", 
+p "Enter a name"
+input_name = gets.chomp
+p "Enter an email"
+input_email = gets.chomp
+p "Enter a password"
+input_password = gets.chomp
+p "Enter password again"
+input_password_confirmation = gets.chomp
+
+response = Unirest.post(
+  "http://localhost:3000/v2/users",
+  parameters: {
+    name: input_name,
+    email: input_email,
+    password: input_password,
+    password_confirmation: input_password_confirmation
+  }
+)
+user = response.body
+p user
+
+
+# LOGIN
+# response = Unirest.post("http://localhost:3000/user_token",
 #   parameters: {
-#     name: "Calvino",
-#     email: "calvino@calvino.com",
-#     password: "password",
-#     password_confirmation: "password"
+#     auth: {
+#       email: "calvino@calvino.com",
+#       password: "password"
+#     }
 #   }
 # )
 
-# user = response.body
+# p response.body
 
-# LOGIN
-response = Unirest.post("http://localhost:3000/user_token",
-  parameters: {
-    auth: {
-      email: "calvino@calvino.com",
-      password: "password"
-    }
-  }
-)
+# jwt = response.body["jwt"]
+# Unirest.default_header("Authorization", "Bearer #{jwt}")
 
-p response.body
+# response = Unirest.get("localhost:3000/v2/contacts")
 
-jwt = response.body["jwt"]
-Unirest.default_header("Authorization", "Bearer #{jwt}")
-
-response = Unirest.get("localhost:3000/v2/contacts")
-
-p response.body
+# p response.body
 
 #LOGOUT
 # jwt = ""

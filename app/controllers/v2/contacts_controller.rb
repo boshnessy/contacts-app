@@ -1,13 +1,16 @@
 class V2::ContactsController < ApplicationController
   def index
-    p "*" * 50
-    p current_user
-    p "*" * 50
+    if current_user
+      contacts = current_user.contacts
+      render json: contacts.as_json
+    else
+      render json: []
+    end
 
     search_term = params[:search]
     contacts = Contact.all.where("first_name LIKE ?", "%#{search_term}%")
 
-    render json: contacts.as_json
+    # render json: contacts.as_json
   end
 
   def show
