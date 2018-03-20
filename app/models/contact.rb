@@ -17,6 +17,7 @@ class Contact < ApplicationRecord
       phone_number: japanese_phone_number,
       address: address,
       bio: bio,
+      user_id: user_id,
       user: user.as_json,
       updated_at: friendly_updated_at
     }
