@@ -1,7 +1,7 @@
 require 'unirest'
 
 while true
-  puts "What do you want to do?"
+  puts "What do you want to do? Hint: You must log-in first to see your contacts or create a new one."
   puts     "[1] See all contacts"
   puts     "[2] See one contact"
   puts     "[3] Create a contact"
